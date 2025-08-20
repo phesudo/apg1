@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Don’t be Mad ❤️</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #ffe6f0, #ffccd5);
+      text-align: center;
+      overflow-x: hidden;
+      padding: 1rem;
+    }
+    h1 {
+      font-size: 2rem;
+      color: #d6336c;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px #ffa6c9;
+    }
+    p {
+      font-size: 1.1rem;
+      color: #444;
+      margin-bottom: 1.5rem;
+    }
+    .button {
+      display: block;
+      width: 90%;
+      max-width: 300px;
+      padding: 1rem;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      background: linear-gradient(90deg, #ff4d88, #ff66a3);
+      color: white;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      margin: 0.5rem auto;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+    .button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+    }
+    #popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff0f5;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      text-align: center;
+      max-width: 90%;
+      animation: popupAnim 0.3s ease-in-out;
+    }
+    #popup p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      color: #444;
+    }
+    @keyframes popupAnim {
+      0% { transform: translate(-50%, -60%) scale(0.8); opacity: 0; }
+      100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Heyy, don’t be mad 👀</h1>
+  <p>K garu ta… aba ta world’s cutest girl lai offend garna payena jasto cha 😏</p>
+  <button class="button" id="stillMadBtn">Still Mad at me?</button>
+
+  <div id="popup">
+    <p id="popupText">Plzz mam, don't be mad 😢</p>
+    <button class="button" id="yesBtn">Yes 😡</button>
+    <button class="button" id="noBtn">No 😘</button>
+    <button class="button" id="closeBtn" style="display:none; margin-top: 1rem;">Close ✨</button>
+  </div>
+
+  <script>
+    const stillMadBtn = document.getElementById("stillMadBtn");
+    const popup = document.getElementById("popup");
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const closeBtn = document.getElementById("closeBtn");
+    const popupText = document.getElementById("popupText");
+
+    const messages = [
+      "Plzz mam, don't be mad 😢",
+      "Just why is this cute girl mad at me? 😭",
+      "I just miss this old cutie, she was never angry with me 💔",
+      "Look at you… being angry but still looking adorable 🤭",
+      "Decision ta timro… tara if you press No 😘, I might just show up with unlimited pampering 😏✨"
+    ];
+    let msgIndex = 0;
+
+    stillMadBtn.addEventListener("click", () => {
+      popup.style.display = "block";
+      popupText.textContent = messages[msgIndex];
+      yesBtn.style.display = "block";
+      noBtn.style.display = "block";
+      closeBtn.style.display = "none";
+    });
+
+    yesBtn.addEventListener("click", () => {
+      msgIndex = (msgIndex + 1) % messages.length;
+      popupText.textContent = messages[msgIndex];
+    });
+
+    noBtn.addEventListener("click", () => {
+      popupText.textContent = "Thanks my beautiful lady for your grace 😘✨";
+      yesBtn.style.display = "none";
+      noBtn.style.display = "none";
+      closeBtn.style.display = "block";
+      msgIndex = 0;
+    });
+
+    closeBtn.addEventListener("click", () => {
+      popup.style.display = "none";
+    });
+  </script>
+</body>
+</html>
